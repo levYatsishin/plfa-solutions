@@ -1,5 +1,5 @@
 # 📜 plfa-solutions
-This is a repository with my solutions for <strong><a href="https://plfa.github.io/" target="_blank">PLFA</a></strong>> tasks, which will grow as I am moving through the book
+This is a repository with my solutions for <strong><a href="https://plfa.github.io/" target="_blank">PLFA</a></strong> tasks, which will grow as I am moving through the book
 
 ## Part 1
 - [Naturals](https://github.com/levYatsishin/plfa-solutions/blob/master/Naturals.agda), _in progress_
