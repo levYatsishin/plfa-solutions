@@ -64,3 +64,84 @@ _ =
 _ : 3 + 4 ≡ 7
 _ = refl
 
+-- Multiplication
+_*_ : ℕ → ℕ → ℕ
+zero    * n  =  zero
+(suc m) * n  =  n + (m * n)
+
+-- *-example (practice)
+_ : 3 * 4 ≡ 12
+_ = 
+    begin
+        3 * 4
+    ≡⟨⟩
+        4 + (2 * 4)
+    ≡⟨⟩
+        4 + (4 + (1 * 4))
+    ≡⟨⟩
+        4 + (4 + (4 + (0 * 4)))
+    ≡⟨⟩
+        4 + (4 + (4 + 0))
+    ≡⟨⟩
+        8 + 4
+    ≡⟨⟩
+        12
+    ∎
+
+--or with refl
+_ : 3 * 4 ≡ 12
+_ = refl
+
+-- Exercise _^_ (recommended)
+_^_ : ℕ → ℕ → ℕ
+n ^ zero = 1
+n ^ (suc m) = n * (n ^ m)
+
+_ : 3 ^ 4 ≡ 81
+_ = refl
+
+-- Monus
+_∸_ : ℕ → ℕ → ℕ
+m     ∸ zero   =  m
+zero  ∸ suc n  =  zero
+suc m ∸ suc n  =  m ∸ n
+
+_ : 5 ∸ 3 ≡ 2
+_ = 
+    begin
+        5 ∸ 3
+    ≡⟨⟩
+        4 ∸ 2
+    ≡⟨⟩
+        3 ∸ 1
+    ≡⟨⟩
+        2 ∸ 0
+    ≡⟨⟩
+        2
+    ∎
+
+_ : 3 ∸ 5 ≡ 0
+_ = 
+    begin
+        3 ∸ 5
+    ≡⟨⟩
+        2 ∸ 4
+    ≡⟨⟩
+        1 ∸ 3
+    ≡⟨⟩
+        0 ∸ 2
+    ≡⟨⟩
+        0
+    ∎
+-- Precedence
+infixl 6  _+_  _∸_
+infixl 7  _*_
+
+-- More pragmas
+{-# BUILTIN NATPLUS _+_ #-}
+{-# BUILTIN NATTIMES _*_ #-}
+{-# BUILTIN NATMINUS _∸_ #-}
+
+-- Exercise Bin (stretch)
+
+
