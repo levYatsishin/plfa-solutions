@@ -133,6 +133,7 @@ _ =
     ≡⟨⟩
         0
     ∎
+
 -- Precedence
 infixl 6  _+_  _∸_
 infixl 7  _*_
@@ -144,4 +145,58 @@ infixl 7  _*_
 
 -- Exercise Bin (stretch)
 
+data Bin : Set where
+  ⟨⟩ : Bin
+  _O : Bin → Bin
+  _I : Bin → Bin
 
+-- inc func
+inc : Bin → Bin
+inc(⟨⟩) = ⟨⟩ I
+inc(b O) = b I
+inc(b I) = inc b O
+
+_ : inc(⟨⟩ O) ≡ ⟨⟩ I
+_ = refl
+
+_ : inc(⟨⟩ I) ≡ ⟨⟩ I O
+_ = refl
+
+_ : inc (⟨⟩ I O I I) ≡ ⟨⟩ I I O O
+_ = refl
+
+_ : inc (⟨⟩ O O O O) ≡ ⟨⟩ O O O I
+_ = refl
+
+
+-- from func
+from : Bin → ℕ
+from ⟨⟩ = 0
+from (b O) = 2 * (from b)
+from (b I) = 2 * (from b) + 1
+
+
+_ : from (⟨⟩) ≡ 0
+_ = refl
+
+_ : from (⟨⟩ O O O O I) ≡ 1
+_ = refl
+
+_ : from (⟨⟩ O O O O I) ≡ from (⟨⟩ O I)
+_ = refl
+
+
+
+-- to func
+to   : ℕ → Bin
+to zero = ⟨⟩
+to (suc n) = inc (to n)
+
+_ : to (0) ≡ ⟨⟩
+_ = refl
+
+_ : to (1) ≡ ⟨⟩ I
+_ = refl
+
+-- Standard library
+-- import Data.Nat using (ℕ; zero; suc; _+_; _*_; _^_; _∸_)
