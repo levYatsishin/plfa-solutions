@@ -3,5 +3,5 @@ This is a repository with my solutions for **[PLFA](https://plfa.github.io/)** t
 
 ## Part 1
 - [Naturals](https://github.com/levYatsishin/plfa-solutions/blob/master/Naturals.agda), **Done!**
-- [Induction](https://github.com/levYatsishin/plfa-solutions/blob/master/Induction.agda), _not done yet_ 
+- [Induction](https://github.com/levYatsishin/plfa-solutions/blob/master/Induction.agda), _in progress_ 
 - [Relations](https://github.com/levYatsishin/plfa-solutions/blob/master/Relations.agda), _not done yet_ 
